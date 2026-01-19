@@ -1,13 +1,17 @@
-// TIMER - using setInterval for a regular-interval timer that clears after 5 seconds
+let seconds = 0;
+let timer;
 
-function say(Hello) {
-  console.log("Hello world!");
-}
+timer = setInterval(() => {
+  seconds++;
+  document.getElementById("timer").textContent = seconds;
 
-const myInterval = setInterval(() => {
-  console.log("I`m a message!");
-},  1000);
+  if (seconds >= 5) {
+    document.getElementById("stopBtn").disabled = false;
+  }
+}, 1000);
 
-setTimeout(() => {
-  clearInterval(myInterval);
-}, 5000);
+document.getElementById("stopBtn").addEventListener("click", () => {
+  clearInterval(timer);
+  document.getElementById("timer").textContent = "Stopped at " + seconds + " seconds";
+});
+

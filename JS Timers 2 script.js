@@ -1,11 +1,21 @@
-let timerId;
 let seconds = 0;
+let intervalId = null;
 
-document.getElementById("startBtn").addEventListener("click", () => {
-    if (timerId) return;
+const button = document.getElementById("startStopBtn");
+const timerDisplay = document.getElementById("timer");
 
-    timerId = setInterval(() => {
-       seconds++;
-      document.getElementById("output").textContent = seconds;
-    }, 1000);
+button.addEventListener("click", () => {
+    if (intervalId === null) {
+
+       intervalId = setInterval(() => {
+           seconds++;
+           timerDisplay.textContent = seconds;
+       }, 1000);
+       button.textContent = "Stop";
+    } else {
+
+        clearInterval(intervalId);
+        intervalId = null;
+        button.textContent = "Start";
+    }
 });

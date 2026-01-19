@@ -1,1 +1,9 @@
-
+message {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #808080;
+  border: 1px solid #000000;
+  color: #f0f0f0;
+  width: fit-content;
+}
